@@ -1,15 +1,26 @@
 import React from 'react'
 import './index.css'
 
+// Data
+import Gif from '../../data/gif'
+
 // Components
 import SearchBar from '../../components/search-bar';
+import ListItem from '../../components/list-item';
+import ChildrenItem from '../../components/children-item'
 
 const index = () => {
-    let src = 'https://media.giphy.com/media/Vh8pbGX3SGRwFDh3V0/source.gif';
+
+    const { url, title } = Gif;
+
     return (
         <>
             <SearchBar />
-            <img src={src} className="img" alt="megaman" />
+            <ListItem url={url} title={title} />
+            {/* <ChildrenItem color="blue">
+                <h1>Contoh Children</h1>
+                <p>Tes</p>
+            </ChildrenItem> */}
         </>
     )
 }
