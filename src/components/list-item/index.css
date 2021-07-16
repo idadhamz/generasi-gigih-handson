@@ -1,0 +1,7 @@
+.list-item {
+    border: 1.5px solid gainsboro;
+    padding: 2rem;
+
+    width: 400px;
+    height: auto;
+}
