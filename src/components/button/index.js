@@ -1,8 +1,8 @@
 import React from 'react'
 
-const index = ({ type, className, value }) => {
+const index = ({...props}) => {
     return (
-        <input type={type} className={className} value={value} ></input>
+        <input {...props}></input>
     )
 }
 

@@ -1,8 +1,8 @@
 import React from 'react'
 
-const index = ({ type, id, className, autoComplete }) => {
+const index = ({...props}) => {
     return (
-        <input type={type} id={id} className={className} autoComplete={autoComplete}></input>
+        <input {...props}></input>
     )
 }
 
