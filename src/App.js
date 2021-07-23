@@ -1,8 +1,8 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
 // Pages
-import Home from './pages/home';
+import Home from "./pages/home";
 
 const App = () => {
   return (
@@ -10,6 +10,6 @@ const App = () => {
       <Home />
     </div>
   );
-}
+};
 
 export default App;
