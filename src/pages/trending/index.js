@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./index.css";
 
 // Data
@@ -17,22 +17,15 @@ import { getImageGifs } from "../../slices/giphy-slices";
 const index = () => {
   const dispatch = useDispatch();
   const Gifs = useSelector((state) => state.giphy.value);
-  // const Gifs = [];
-  console.log(Gifs);
-  const [input, setInput] = useState("");
 
-  const handleChange = (e) => setInput(e.target.value);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  useEffect(() => {
     getGifs();
-  };
+  }, []);
 
   const getGifs = async () => {
     const api_key = process.env.REACT_APP_GIPHY_KEY;
-    const q = input;
     const limit = 12;
-    const endpoint = `https://api.giphy.com/v1/gifs/search?api_key=${api_key}&q=${q}&limit=${limit}`;
+    const endpoint = `https://api.giphy.com/v1/gifs/trending?api_key=${api_key}&limit=${limit}`;
 
     const dataGif = await fetch(endpoint).then((res) => res.json());
     dispatch(getImageGifs(dataGif.data));
@@ -52,14 +45,7 @@ const index = () => {
 
   return (
     <>
-      <SearchBar
-        input={input}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-      />
-
       {/* {listGifs} */}
-
       <div className="list">
         {/* {Gifs.filter((gif) => gif.rating === 'g').map((gif) => {
                     return(
@@ -68,6 +54,7 @@ const index = () => {
                 })} */}
 
         {listGifs}
+        {/* <h1>Test</h1> */}
       </div>
 
       {/* <ChildrenItem color="blue">
