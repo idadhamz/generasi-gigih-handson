@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./index.css";
 
 // Data
@@ -21,6 +21,10 @@ const index = () => {
   console.log(Gifs);
   const [input, setInput] = useState("");
 
+  useEffect(() => {
+    getGifs("Spiderman")
+  }, [])
+
   const handleChange = (e: any) => setInput(e.target.value);
 
   const handleSubmit = (e: any) => {
@@ -28,9 +32,9 @@ const index = () => {
     getGifs();
   };
 
-  const getGifs = async () => {
+  const getGifs = async (value?: string) => {
     const api_key = process.env.REACT_APP_GIPHY_KEY;
-    const q = input;
+    const q = value ? value : input;
     const limit = 13;
     const endpoint = `https://api.giphy.com/v1/gifs/search?api_key=${api_key}&q=${q}&limit=${limit}`;
 

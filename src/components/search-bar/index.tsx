@@ -11,7 +11,7 @@ type Props = {
 const index = ({ input, handleChange, handleSubmit }: any) => {
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="search">Title Gif : </label>
+      {/* <label htmlFor="search">Title Gif : </label> */}
       <FormInput
         type="text"
         id="search"

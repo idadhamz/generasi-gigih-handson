@@ -1,5 +1,8 @@
 form {
     padding: 15px 0;
+
+    display: flex;
+    justify-content: center;
 }
 
 form .search {
@@ -9,7 +12,7 @@ form .search {
     padding: 10px 15px;
     border-radius: 10px;
 
-    width: 200px;
+    width: 300px;
 }
 
 form .submit {
