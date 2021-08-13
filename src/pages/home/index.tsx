@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./index.css";
 
 // Data
@@ -11,19 +11,19 @@ import ListItem from "../../components/list-item";
 // import ChildrenItem from '../../components/children-item'
 
 //Redux
-import { useDispatch, useSelector } from "react-redux";
-import { getImageGifs } from "../../slices/giphy-slices";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { giphyValue, getImageGifs } from "../../slices/giphy-slices";
 
 const index = () => {
-  const dispatch = useDispatch();
-  const Gifs = useSelector((state) => state.giphy.value);
+  const dispatch = useAppDispatch();
+  const Gifs = useAppSelector(giphyValue);
   // const Gifs = [];
   console.log(Gifs);
   const [input, setInput] = useState("");
 
-  const handleChange = (e) => setInput(e.target.value);
+  const handleChange = (e: any) => setInput(e.target.value);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     getGifs();
   };
@@ -31,7 +31,7 @@ const index = () => {
   const getGifs = async () => {
     const api_key = process.env.REACT_APP_GIPHY_KEY;
     const q = input;
-    const limit = 12;
+    const limit = 13;
     const endpoint = `https://api.giphy.com/v1/gifs/search?api_key=${api_key}&q=${q}&limit=${limit}`;
 
     const dataGif = await fetch(endpoint).then((res) => res.json());
@@ -39,13 +39,12 @@ const index = () => {
   };
 
   const listGifs = Gifs.map(
-    (gif) =>
+    (gif: any) =>
       gif.rating == "g" && (
         <ListItem
           key={gif.id}
           url={gif.images.original.url}
           alt={gif.title}
-          rating={gif.rating}
         />
       )
   );
@@ -60,7 +59,7 @@ const index = () => {
 
       {/* {listGifs} */}
 
-      <div className="list">
+      <div className="items">
         {/* {Gifs.filter((gif) => gif.rating === 'g').map((gif) => {
                     return(
                         <ListItem key={gif.id} url={gif.url} alt={gif.title} rating={gif.rating} />

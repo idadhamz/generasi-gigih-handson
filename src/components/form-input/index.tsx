@@ -1,7 +1,7 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 
-const index = ({ ...props }) => {
+const index = ({ ...props }: any) => {
   return <TextField {...props} />;
 };
 

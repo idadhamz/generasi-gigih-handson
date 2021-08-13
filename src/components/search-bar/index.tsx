@@ -4,7 +4,11 @@ import "./index.css";
 import FormInput from "../form-input";
 import Button from "../button";
 
-const index = ({ input, handleChange, handleSubmit }) => {
+type Props = {
+  input: string,
+}
+
+const index = ({ input, handleChange, handleSubmit }: any) => {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="search">Title Gif : </label>

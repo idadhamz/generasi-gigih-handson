@@ -12,11 +12,11 @@ import ListItem from "../../components/list-item";
 
 //Redux
 import { useDispatch, useSelector } from "react-redux";
-import { getImageGifs } from "../../slices/giphy-slices";
+import { giphyValue, getImageGifs } from "../../slices/giphy-slices";
 
 const index = () => {
   const dispatch = useDispatch();
-  const Gifs = useSelector((state) => state.giphy.value);
+  const Gifs = useSelector(giphyValue);
 
   useEffect(() => {
     getGifs();
@@ -38,7 +38,6 @@ const index = () => {
           key={gif.id}
           url={gif.images.original.url}
           alt={gif.title}
-          rating={gif.rating}
         />
       )
   );

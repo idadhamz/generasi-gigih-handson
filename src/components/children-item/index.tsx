@@ -1,6 +1,6 @@
 import React from "react";
 
-const index = (props) => {
+const index = (props: any) => {
   return (
     <div style={{ backgroundColor: props.color, paddingTop: "50px" }}>
       {props.children}

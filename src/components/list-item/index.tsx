@@ -1,9 +1,14 @@
 import React from "react";
 import "./index.css";
 
-const index = ({ url, alt }) => {
+type GifProps = {
+  url: string,
+  alt: string
+}
+
+const index = ({ url, alt }: GifProps) => {
   return (
-    <div className="list-item">
+    <div className="item">
       <img
         src={url || "https://dummyimage.com/400x400/fff/000.png"}
         className="img"
